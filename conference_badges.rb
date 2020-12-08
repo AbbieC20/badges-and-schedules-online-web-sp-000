@@ -21,13 +21,10 @@ def assign_rooms(attendees)
   return room_assignments
 end
 
-def printer(attendees) 
-  attendees.each do |speaker|
-    puts "Hello, my name is #{speaker}."
+def printer(attendees)
+  batch_badge_creator(attendees).each do |badge|
+    puts badge
   end
-  room_assignments = []
-  attendees.each_with_index do |person, room|
-    announcement = "Hello, #{person}! You'll be assigned to room #{room + 1}!"
-    puts announcement
-  end
+  assign_rooms(attendees).each do |rooms|
+    puts rooms
 end
